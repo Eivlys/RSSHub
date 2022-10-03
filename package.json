@@ -178,6 +178,6 @@
     "ext": "art,js,mjs,json"
   },
   "engines": {
-    "node": ">=14"
+    "node": "18.x"
   }
 }
