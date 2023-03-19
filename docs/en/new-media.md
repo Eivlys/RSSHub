@@ -492,6 +492,18 @@ Edition
 
 <RouteEn author="Cerebrater xosdy" example="/matters/author/az" path="/matters/author/:uid" :paramsDesc="['Author id, can be found at author\'s homepage url']" radar="1" rssbud="1"/>
 
+## McLaren Racing
+
+### Articles
+
+<RouteEn author="Bubbu0129" example="/mclaren/en/all" path="/mclaren/:lang/:category?" :paramsDesc="['Supports English(en), Simplified Chinese(zh), and Spanish(es).', 'Default to exporting all media (all); See the table below for details']" radar="1" rssbud="1">
+
+| All Media | Article | Report | Gallery | Video | Blog | Photo Essay  |
+| --------- | ------- | ------ | ------- | ----- | ---- | -----------  |
+| all       | article | report | gallery | video | blog | photo\_essay |
+
+</RouteEn>
+
 ## Mirror
 
 ### User
@@ -542,13 +554,19 @@ This route provides a flexible plan with full text content to subscribe specific
 
 ### Blog
 
-<RouteEn author="ncziztk" example="/openai/blog" path="/openai/blog/:tag" :paramsDesc="['Tag, see below, All by default']">
+<RouteEn author="ncziztk StevenRCE0" example="/openai/blog" path="/openai/blog/:tag?" :paramsDesc="['Tag, see below, All by default']">
 
-| All | Research | Announcements | Events | Milestones |
-| --- | -------- | ------------- | ------ | ---------- |
-|     | research | announcements | events | milestones |
+| All | Announcements | Events | Safety & Alignment | Community | Product | Culture & Careers   | Milestones | Research |
+| --- | ------------- | ------ | ------------------ | --------- | ------- | ------------------- | ---------- | -------- |
+|     | announcements | events | safety-alignment   | community | product | culture-and-careers | milestones | research |
 
 </RouteEn>
+
+## Phoronix
+
+### News & Reviews
+
+<RouteEn author="oppliate" example="/phoronix/news_topic/Intel" path="/phoronix/:page/:queryOrItem?" :paramsDesc="['Page name', 'For `category` it corresponds to `item`, for other pages it\'s `q`. You may find available parameters from their navigator links. E.g. to subscribe to the category page `https://www.phoronix.com/scan.php?page=category&item=Computers`, fill in the path `/phoronix/category/Computers`']" radar="1"/>
 
 ## Polar
 

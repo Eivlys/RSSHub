@@ -20,6 +20,7 @@ Deploy for public access may require:
 3. [Redis](https://redis.io/download)
 4. [Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
 5. [Google App Engine](https://cloud.google.com/appengine/)
+6. [Fly.io](https://fly.io/)
 
 ## Docker Image
 
@@ -283,6 +284,12 @@ in pkgs.stdenv.mkDerivation {
 }
 ```
 
+## Deploy to Railway
+
+Automatic updates are included.
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/QxW__f?referralCode=9wT3hc)
+
 ## Deploy to Heroku
 
 ### Notice
@@ -319,10 +326,11 @@ Heroku [no longer](https://blog.heroku.com/next-chapter) offers free product pla
     $ cd RSSHub
     ```
 3. [Sign up for Fly.io](https://fly.io/app/sign-up) and install the [`flyctl` CLI](https://fly.io/docs/hands-on/install-flyctl/).
-4. Run `flyctl launch` and choose a unique name.
+4. Run `flyctl launch` and choose a unique name and region to deploy.
 5. Use `flyctl secrets set KEY=VALUE` to [configure specific routes](#configuration-route-specific-configurations).
 6. [Set up automatic deployment via GitHub Actions](https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/)
 7. Install the [Pull](https://github.com/apps/pull) GitHub app to keep your fork synchronized with upstream.
+8. (Optional) Point your own domain to the IPv4 and IPv6 addresses provided by fly.io, then go to Certificate page and add the domain.
 
 ### Configure built-in Upstash Redis as cache
 
@@ -640,6 +648,10 @@ See docs of the specified route and `lib/config.js` for detailed information.
     -   `BITBUCKET_USERNAME`: Your Bitbucket username
     -   `BITBUCKET_PASSWORD`: Your Bitbucket app password
 
+-   Discord
+
+    -   `DISCORD_AUTHORIZATION`: Discord authorization token, can be found in the header of XHR requests after logging in Discord web client
+
 -   Discuz cookie
 
     -   `DISCUZ_COOKIE_{cid}`: Cookie of a forum powered by Discuz, cid can be anything from 00 to 99. When visiting a Discuz route, use cid to specify this cookie.
@@ -675,9 +687,10 @@ See docs of the specified route and `lib/config.js` for detailed information.
 
 -   Instagram:
 
-    -   `IG_USERNAME`: Your Instagram username
-    -   `IG_PASSWORD`: Your Instagram password
-    -   `IG_PROXY`: Proxy URL for Instagram
+    -   `IG_USERNAME`: Your Instagram username (Private API only)
+    -   `IG_PASSWORD`: Your Instagram password (Private API only)
+    -   `IG_PROXY`: Proxy URL for Instagram (Private API only, optional)
+    -   `IG_COOKIE`: Your Instagram cookie (Cookie only)
 
     Warning: Two Factor Authentication is **not** supported.
 
@@ -705,6 +718,10 @@ See docs of the specified route and `lib/config.js` for detailed information.
 
     -   `NHENTAI_USERNAME`: nhentai username or email
     -   `NHENTAI_PASSWORD`: nhentai password
+
+-   Pixabay: [Documentation](https://pixabay.com/api/docs/)
+
+    -   `PIXABAY_KEY`: Pixabay API key
 
 -   pixiv: [Registration](https://accounts.pixiv.net/signup)
 
