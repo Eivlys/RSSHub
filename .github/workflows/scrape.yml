@@ -9,7 +9,7 @@ on:
       - 'docs/**'
   workflow_dispatch: ~
   schedule:
-  - cron: '0 9 */5 * *'
+  - cron: '0 10 * */3 *'
 
 jobs:
   scrape-docs:
